@@ -6,7 +6,7 @@ App1::Application.routes.draw do
   match '/about', :to=>'pages#about'
   match '/help', :to=>'pages#help'
   match '/signup', :to=>'users#new'
-  get "pages/home"
+  #get "pages/home"
 
 
 
