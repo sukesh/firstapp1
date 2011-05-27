@@ -55,5 +55,3 @@ it "should be successful" do
 end
 end
 
-
-end
