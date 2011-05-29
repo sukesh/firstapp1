@@ -1,6 +1,17 @@
-<h1><b>
-<%=gravatar_for @user%>
-<font color="#8IRUH87"><%=@user.name%>
-<br></font>
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="#8IRUH87"><%=@user.email%></font>
-</h1></b>	
+<table class="profile" summary="Profile information" >
+ <tr>
+   <td class="main">
+    <h1><b>
+    <%=gravatar_for @user%>
+    <font color="#8IRUH87"><%=@user.name%>
+    <br></font>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font     color="#8IRUH87"><%=@user.email%></font>
+</h1></b>
+</td>
+<td class="sidebar round"><font color="#9885">
+ <strong>Name:&nbsp&nbsp</strong><%= @user.name%><br />
+ <strong>URL:&nbsp&nbsp</strong><%=link_to user_path(@user),
+ user_path(@user)%>	
+</td>
+</tr></font>
+</table>
