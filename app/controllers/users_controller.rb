@@ -4,6 +4,7 @@
     #@user=User.find_by_email("sukesh@futurenow.biz")
      #@user=User.find("3")
      @user=User.find(params[:id])
+     @title=@user.name
   end
   def new
   	@title="Sign up"

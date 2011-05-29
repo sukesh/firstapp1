@@ -4,7 +4,7 @@ gem 'rails', '3.0.6'
 
 gem 'rake','~> 0.8.7m'
 gem 'sqlite3'
-
+gem 'gravatar_image_tag'
 group :development do
 gem 'rspec-rails','2.6.0'
 gem 'annotate-models','1.0.4'
