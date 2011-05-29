@@ -12,4 +12,5 @@ end
 group :test do
 gem 'rspec-rails','2.6.0'
 gem 'spork', '0.8.4 '
+gem 'factory_girl_rails'
 end
