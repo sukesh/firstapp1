@@ -24,7 +24,37 @@ class User < ActiveRecord::Base
                     :uniqueness=> {:case_sensitive=>false}
    validates :password, :presence => true,
                         :confirmation=>true,
-                        :length =>{#:maximum=>20,:minimum=>6
-                                     :within=>6..20}
+                        :length =>{#:maximum=>20,:minimum=>6,
+                                 :within=>6..20}
+   #callback methods 
+   before_save :encrypt_password  #---> method 
+  def has_password?(sub_pwd)
+   encrypted_password==encrypt(sub_pwd)
+  end
 
+class << self  #User's class
+ 
+  def authenticate(email,pwd)
+     user=find_by_email(email)
+     return nil   if user.nil?
+     return user  if user.has_password?(pwd)
+   end
+
+end
+
+private
+def encrypt_password
+ self.salt= make_salt if new_record?
+ self.encrypted_password=encrypt(self.password)
+
+end
+def encrypt(string)
+secure_hash("#{salt}--#{string}")
+end
+def make_salt
+secure_hash("#{Time.now.utc}--#{password}")
+end
+def secure_hash(string)
+Digest::SHA2.hexdigest(string)
+end
 end
